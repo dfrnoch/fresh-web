@@ -2,7 +2,6 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { config } from "dotenv";
 interface User {
   id: string;
   username: string;
@@ -33,7 +32,7 @@ export default function Home({ data }: PageProps<User | null>) {
       <div class={tw`flex items-center`}>
         <img
           src={`https://cdn.discordapp.com/avatars/${data?.id}/${data?.avatar}.png?size=80`}
-          class={tw`rounded-full `}
+          class={tw`rounded-full`}
           width="80px"
           height="80px"
           alt="logo"
