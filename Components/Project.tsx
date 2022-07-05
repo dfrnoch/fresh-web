@@ -1,8 +1,13 @@
 /** @jsx h */
 import { h } from "preact";
+import { Handlers, PageProps } from "$fresh/server.ts";
 
-//todo: remove
-// deno-lint-ignore no-explicit-any
-export default function Project(data: any) {
-  return <div>Epicke projekt</div>;
+interface Project {
+  name: string;
+  description: string;
+  stars: string;
+}
+
+export default function Project(project: Project) {
+  return <div>Jmeno {project.name}</div>;
 }

@@ -10,8 +10,18 @@ interface User {
   discriminator: string;
   avatar: string;
 }
+interface IProject {
+  name: string;
+  description: string;
+  stars: string;
+}
 
-export const handler: Handlers<User | null> = {
+interface Data {
+  user: User;
+  projects: IProject[];
+}
+
+export const handler: Handlers<Data> = {
   async GET(_, ctx) {
     const id = "724579978921902114";
     const resp = await fetch(`https://discord.com/api/v9/users/${id}`, {
@@ -19,21 +29,21 @@ export const handler: Handlers<User | null> = {
         Authorization: `Bot ${Deno.env.get("TOKEN")}`,
       },
     });
-    if (resp.status === 404) {
-      return ctx.render(null);
-    }
+
+    const disresp = await fetch(`https://api.github.com/users/lnxcz/repos`);
+    const projects: IProject[] = await disresp.json();
 
     const user: User = await resp.json();
-    return ctx.render(user);
+    return ctx.render({ user, projects });
   },
 };
 
-export default function Home({ data }: PageProps<User | null>) {
+export default function Home({ data }: PageProps<Data>) {
   return (
-    <div class={tw`p-4 mx-auto max-w-screen-sm`}>
+    <div class={tw`p-4 mx-auto max-w-screen-sm mt-10`}>
       <div class={tw`flex items-center`}>
         <img
-          src={`https://cdn.discordapp.com/avatars/${data?.id}/${data?.avatar}.png?size=80`}
+          src={`https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png?size=80`}
           class={tw`rounded-full`}
           width="100px"
           height="100px"
@@ -42,7 +52,9 @@ export default function Home({ data }: PageProps<User | null>) {
         <div class={tw`ml-6 text(lg)`}>
           <div class={tw`flex`}>
             <h1 class={tw`text-3xl font-semibold`}>lynx</h1>
-            {data && <p class={tw`font-semibold`}>#{data?.discriminator}</p>}
+            {data && (
+              <p class={tw`font-semibold`}>#{data.user.discriminator}</p>
+            )}
           </div>
           <p>Software Developer</p>
           <div class={tw`flex items(center) mt-4`}>
@@ -70,7 +82,13 @@ export default function Home({ data }: PageProps<User | null>) {
       </div>
       <div>
         <h2 class={tw`mt-10 text(2xl) font(bold)`}>Projects</h2>
-        <Project />
+        {data.projects.map((project) => (
+          <Project
+            name={project.name}
+            description={project.description}
+            stars={project.stars}
+          />
+        ))}
       </div>
     </div>
   );
