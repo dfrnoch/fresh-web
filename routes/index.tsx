@@ -45,19 +45,28 @@ export default function Home({ data }: PageProps<User | null>) {
           </div>
           <p>Software Developer</p>
           <div class={tw`flex items(center) mt-4`}>
-            <a class={tw`w-6 mr-5`}>
+            <a class={tw`w-6 mr-7`} href="https://github.com/lnxcz">
               <img src="./icons/github.svg" alt="github" />
             </a>
-            <a class={tw`w-6 mr-5`}>
+            <a class={tw`w-6 mr-7`} href="https://anilist.co/user/lynxcz/">
               <img src="./icons/anilist.svg" alt="anilist" />
             </a>
-            <a class={tw`w-6 mr-5`}>
+            <a
+              class={tw`w-6 mr-7`}
+              href="https://discord.com/users/724579978921902114"
+            >
               <img src="./icons/discord.svg" alt="discord" />
             </a>
           </div>
         </div>
       </div>
-      <div class={tw`mt-5 text(gray-800)`}>Ahoj, rad pouzivam rust </div>
+      <div class={tw`mt-10 text(gray-800)`}>
+        Hello there, my name's David, but most people call me lynx online. I'm
+        17 years old guy from Czech Republic. I'm currently studying software
+        development, and my primary languages are Rust for backend and
+        TypeScript for websites/apps. In my free time, I enjoy playing games and
+        watching anime.
+      </div>
     </div>
   );
 }
