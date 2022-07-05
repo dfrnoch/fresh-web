@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
+
 interface User {
   id: string;
   username: string;
@@ -33,8 +34,8 @@ export default function Home({ data }: PageProps<User | null>) {
         <img
           src={`https://cdn.discordapp.com/avatars/${data?.id}/${data?.avatar}.png?size=80`}
           class={tw`rounded-full`}
-          width="80px"
-          height="80px"
+          width="90px"
+          height="90px"
           alt="logo"
         />
         <div class={tw`ml-6 text(lg)`}>
@@ -43,6 +44,17 @@ export default function Home({ data }: PageProps<User | null>) {
             {data && <p class={tw`font-semibold`}>#{data?.discriminator}</p>}
           </div>
           <p>Software Developer</p>
+          <div class={tw`flex items(center) mt-4`}>
+            <a class={tw`w-6 mr-5`}>
+              <img src="./icons/github.svg" alt="github" />
+            </a>
+            <a class={tw`w-6 mr-5`}>
+              <img src="./icons/anilist.svg" alt="anilist" />
+            </a>
+            <a class={tw`w-6 mr-5`}>
+              <img src="./icons/discord.svg" alt="discord" />
+            </a>
+          </div>
         </div>
       </div>
       <div class={tw`mt-5 text(gray-800)`}>Ahoj, rad pouzivam rust </div>
