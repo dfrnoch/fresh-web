@@ -34,8 +34,8 @@ export default function Home({ data }: PageProps<User | null>) {
         <img
           src={`https://cdn.discordapp.com/avatars/${data?.id}/${data?.avatar}.png?size=80`}
           class={tw`rounded-full`}
-          width="90px"
-          height="90px"
+          width="100px"
+          height="100px"
           alt="logo"
         />
         <div class={tw`ml-6 text(lg)`}>
@@ -62,8 +62,8 @@ export default function Home({ data }: PageProps<User | null>) {
       </div>
       <div class={tw`mt-10 text(gray-800)`}>
         Hello there, my name's David, but most people call me lynx online. I'm
-        17 years old guy from Czech Republic. I'm currently studying software
-        development, and my primary languages are Rust for backend and
+        17 years old and living in Czech Republic. I'm currently studying
+        software development, and my primary languages are Rust for backend and
         TypeScript for websites/apps. In my free time, I enjoy playing games and
         watching anime.
       </div>
