@@ -2,6 +2,7 @@
 import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
+import Project from "../Components/Project.tsx";
 
 interface User {
   id: string;
@@ -29,7 +30,7 @@ export const handler: Handlers<User | null> = {
 
 export default function Home({ data }: PageProps<User | null>) {
   return (
-    <div class={tw`p-4 mx-auto max-w-screen-md`}>
+    <div class={tw`p-4 mx-auto max-w-screen-sm`}>
       <div class={tw`flex items-center`}>
         <img
           src={`https://cdn.discordapp.com/avatars/${data?.id}/${data?.avatar}.png?size=80`}
@@ -66,6 +67,10 @@ export default function Home({ data }: PageProps<User | null>) {
         software development, and my primary languages are Rust for backend and
         TypeScript for websites/apps. In my free time, I enjoy playing games and
         watching anime.
+      </div>
+      <div>
+        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Projects</h2>
+        <Project />
       </div>
     </div>
   );
