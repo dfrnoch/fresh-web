@@ -43,10 +43,8 @@ export default function Home({ data }: PageProps<Data>) {
     <div class={tw`p-4 mx-auto max-w-screen-sm mt-10`}>
       <div class={tw`flex items-center`}>
         <img
-          src={`https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png?size=80`}
+          src={`https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png?size=100`}
           class={tw`rounded-full`}
-          width="100px"
-          height="100px"
           alt="logo"
         />
         <div class={tw`ml-6 text(lg)`}>

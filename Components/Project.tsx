@@ -1,5 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
+import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 interface Project {
@@ -9,5 +10,5 @@ interface Project {
 }
 
 export default function Project(project: Project) {
-  return <div>Jmeno {project.name}</div>;
+  return <div class={tw`mb-[100px]`}>Jmeno {project.name}</div>;
 }
