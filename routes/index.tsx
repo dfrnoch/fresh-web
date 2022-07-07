@@ -13,7 +13,9 @@ interface User {
 interface IProject {
   name: string;
   description: string;
-  stars: string;
+  stargazers_count: string;
+  forks: string;
+  svn_url: string;
 }
 
 interface Data {
@@ -84,7 +86,9 @@ export default function Home({ data }: PageProps<Data>) {
           <Project
             name={project.name}
             description={project.description}
-            stars={project.stars}
+            stars={project.stargazers_count}
+            forks={project.forks}
+            url={project.svn_url}
           />
         ))}
       </div>
