@@ -13,7 +13,7 @@ interface User {
 interface IProject {
   name: string;
   description: string;
-  stargazers_count: string;
+  stargazers_count: number;
   forks: string;
   svn_url: string;
 }
@@ -74,23 +74,25 @@ export default function Home({ data }: PageProps<Data>) {
         </div>
       </div>
       <div class={tw`mt-10 text(gray-800)`}>
-        Hello there, my name's David, but most people call me lynx online. I'm
-        17 years old and living in Czech Republic. I'm currently studying
-        software development, and my primary languages are Rust for backend and
-        TypeScript for websites/apps. In my free time, I enjoy playing games and
-        watching anime.
+        Hello there, I'm lynx, 17 y.o. from Czechia. I'm a self-taught
+        fullstack/desktop applications developer. My primary languages are Rust
+        for backend and TypeScript for web apps and I really like using bleeding
+        edge technology. In my free time, I enjoy playing games and watching
+        anime.
       </div>
       <div>
-        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Projects</h2>
-        {data.projects.map((project) => (
-          <Project
-            name={project.name}
-            description={project.description}
-            stars={project.stargazers_count}
-            forks={project.forks}
-            url={project.svn_url}
-          />
-        ))}
+        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Open-Sourced Projects</h2>
+        {data.projects
+          .filter((project) => project.stargazers_count > 1)
+          .map((project) => (
+            <Project
+              name={project.name}
+              description={project.description}
+              stars={project.stargazers_count}
+              forks={project.forks}
+              url={project.svn_url}
+            />
+          ))}
       </div>
     </div>
   );
