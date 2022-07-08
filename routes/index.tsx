@@ -81,7 +81,7 @@ export default function Home({ data }: PageProps<Data>) {
         anime.
       </div>
       <div>
-        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Open-Sourced Projects</h2>
+        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Open-Source Projects</h2>
         {data.projects
           .filter((project) => project.stargazers_count > 1)
           .map((project) => (
