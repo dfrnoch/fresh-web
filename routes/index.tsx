@@ -10,6 +10,7 @@ interface User {
   discriminator: string;
   avatar: string;
 }
+
 interface IProject {
   name: string;
   description: string;
@@ -84,6 +85,9 @@ export default function Home({ data }: PageProps<Data>) {
         <h2 class={tw`mt-10 text(2xl) font(bold)`}>Open-Source Projects</h2>
         {data.projects
           .filter((project) => project.stargazers_count > 1)
+          .sort(
+            (first, second) => second.stargazers_count - first.stargazers_count
+          )
           .map((project) => (
             <Project
               name={project.name}
