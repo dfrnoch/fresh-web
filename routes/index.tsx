@@ -3,6 +3,7 @@ import { h } from "preact";
 import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Project from "../Components/Project.tsx";
+import prj from "../static/projects.json" assert { type: "json" };
 
 interface User {
   id: string;
@@ -97,6 +98,7 @@ export default function Home({ data }: PageProps<Data>) {
               url={project.svn_url}
             />
           ))}
+        .. and other bad stuff can be found on github.
       </div>
     </div>
   );
