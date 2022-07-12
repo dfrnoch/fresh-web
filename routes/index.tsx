@@ -84,18 +84,18 @@ export default function Home({ data }: PageProps<Data>) {
       </div>
       <div>
         <h2 class={tw`mt-10 text(2xl) font(bold)`}>Open-Source Projects</h2>
-        {data.projects
-          .filter((project) => project.stargazers_count > 1)
-          .sort(
-            (first, second) => second.stargazers_count - first.stargazers_count
-          )
+        {prj
+          // .filter((project) => project.stargazers_count > 1)
+          // .sort(
+          //   (first, second) => second.stargazers_count - first.stargazers_count
+          // )
           .map((project) => (
             <Project
               name={project.name}
               description={project.description}
-              stars={project.stargazers_count}
+              stars={project.stars}
               forks={project.forks}
-              url={project.svn_url}
+              url={project.url}
             />
           ))}
         .. and other bad stuff can be found on github.

@@ -6,7 +6,7 @@ interface Project {
   name: string;
   description: string;
   stars: number;
-  forks: string;
+  forks: number;
   url: string;
 }
 
