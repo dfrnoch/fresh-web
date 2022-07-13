@@ -111,7 +111,7 @@ export default function Home({ data }: PageProps<Data>) {
       </div>
       <div>
         <h2 class={tw`mt-10 text(2xl) font(bold)`}>Donate</h2>
-        <p class={tw`mt-2 text(gray-800)`}>Got some crypto to spare? Well in that case you could consider donating :)</p>
+        <p class={tw`mt-2 text(gray-800)`}>Have some crypto to spare? Well in that case you could consider donating :)</p>
         <div class={tw`mx-auto max-w-screen-sm mt-5`}>
           <div class={tw`flex items-center justify-between`}>
             <Donate name="Monero" qr="qr/monero.png" adress="467WEnaEv6jA3ni5Fb79m3NxZhpZXnY2kNvv3VkWcaCdXw25WU8SZomDm4x7gr83q6d94LGTdg2wwSQm11FLNHuhUz4sqNf" />
