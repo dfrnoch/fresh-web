@@ -4,6 +4,7 @@ import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Project from "../Components/Project.tsx";
 import prj from "../static/projects.json" assert { type: "json" };
+import Donate from "../islands/Donate.tsx";
 
 interface User {
   id: string;
@@ -12,7 +13,7 @@ interface User {
   avatar: string;
 }
 
-interface IProject {
+interface GProject {
   name: string;
   description: string;
   stargazers_count: number;
@@ -20,9 +21,17 @@ interface IProject {
   svn_url: string;
 }
 
+interface IProject {
+  name: string;
+  description: string;
+  stars: number;
+  forks: string;
+  url: string;
+}
+
 interface Data {
   user: User;
-  projects: IProject[];
+  projects: IProject[] | GProject[];
 }
 
 export const handler: Handlers<Data> = {
@@ -35,7 +44,7 @@ export const handler: Handlers<Data> = {
     });
 
     const disresp = await fetch(`https://api.github.com/users/lnxcz/repos`);
-    const projects: IProject[] = await disresp.json();
+    const projects: GProject[] = await disresp.json();
 
     const user: User = await resp.json();
     return ctx.render({ user, projects });
@@ -89,7 +98,7 @@ export default function Home({ data }: PageProps<Data>) {
           // .sort(
           //   (first, second) => second.stargazers_count - first.stargazers_count
           // )
-          .map((project) => (
+          .map((project: IProject) => (
             <Project
               name={project.name}
               description={project.description}
@@ -99,6 +108,20 @@ export default function Home({ data }: PageProps<Data>) {
             />
           ))}
         .. and other bad stuff can be found on github.
+      </div>
+      <div>
+        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Donate</h2>
+        <p class={tw`mt-2 text(gray-800)`}>Got some crypto to spare? Well in that case you could consider donating :)</p>
+        <div class={tw`mx-auto max-w-screen-sm mt-5`}>
+          <div class={tw`flex items-center justify-between`}>
+            <Donate name="Monero" qr="qr/monero.png" adress="467WEnaEv6jA3ni5Fb79m3NxZhpZXnY2kNvv3VkWcaCdXw25WU8SZomDm4x7gr83q6d94LGTdg2wwSQm11FLNHuhUz4sqNf" />
+            <Donate name="Ethereum" qr="qr/eth.png" adress="0x5B24E8E62EC5a57112547B2fA24955260F8C806D" />
+            <Donate name="Bitcoin" qr="qr/btc.png" adress="bc1qxxvxtxem4tzfdjmmsavvslx2hkxvpahn04k86q" />
+          </div>
+        </div>
+
+
+
       </div>
     </div>
   );
