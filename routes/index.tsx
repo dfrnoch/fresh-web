@@ -4,7 +4,7 @@ import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 import Project from "../Components/Project.tsx";
 import prj from "../static/projects.json" assert { type: "json" };
-import Donate from "../islands/Donate.tsx";
+import Donate from "../Components/Donate.tsx";
 
 interface User {
   id: string;
@@ -21,17 +21,9 @@ interface GProject {
   svn_url: string;
 }
 
-interface IProject {
-  name: string;
-  description: string;
-  stars: number;
-  forks: string;
-  url: string;
-}
-
 interface Data {
   user: User;
-  projects: IProject[] | GProject[];
+  projects: GProject[];
 }
 
 export const handler: Handlers<Data> = {
@@ -88,41 +80,54 @@ export default function Home({ data }: PageProps<Data>) {
         Hello there, I'm lynx, 17 y.o. from Czechia. I'm a self-taught
         fullstack/desktop applications developer. My primary languages are Rust
         for backend and TypeScript for web apps and I really like using bleeding
-        edge technology. On side note I enjoy playing games and watching
-        anime.
+        edge technology. On side note I enjoy playing games and watching anime.
       </div>
       <div>
-        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Open-Source Projects (WIP)</h2>
-        {prj
-          // .filter((project) => project.stargazers_count > 1)
-          // .sort(
-          //   (first, second) => second.stargazers_count - first.stargazers_count
-          // )
-          .map((project: IProject) => (
-            <Project
-              name={project.name}
-              description={project.description}
-              stars={project.stars}
-              forks={project.forks}
-              url={project.url}
-            />
-          ))}
+        <h2 class={tw`mt-10 text(2xl) font(bold)`}>
+          Open-Source Projects (WIP)
+        </h2>
+        {prj.map((project) => (
+          <Project
+            name={project.name}
+            description={project.description}
+            stars={project.stars}
+            forks={project.forks}
+            url={project.url}
+          />
+        ))}
         .. and other bad stuff can be found on github.
       </div>
       <div>
         <h2 class={tw`mt-10 text(2xl) font(bold)`}>Donate</h2>
-        <p class={tw`mt-2 text(gray-800)`}>Have some crypto to spare? Well in that case you could consider donating :)</p>
+        <p class={tw`mt-2 text(gray-800)`}>
+          Have some crypto to spare? Well in that case you could consider
+          donating :)
+        </p>
         <div class={tw`mx-auto max-w-screen-sm mt-5`}>
-          <div class={tw`flex items-center justify-center sm:justify-between flex(wrap sm:nowrap)`}>
-            <Donate name="Monero" qr="qr/monero.png" adress="467WEnaEv6jA3ni5Fb79m3NxZhpZXnY2kNvv3VkWcaCdXw25WU8SZomDm4x7gr83q6d94LGTdg2wwSQm11FLNHuhUz4sqNf" />
-            <Donate name="Ethereum" qr="qr/eth.png" adress="0x5B24E8E62EC5a57112547B2fA24955260F8C806D" />
-            <Donate name="Bitcoin" qr="qr/btc.png" adress="bc1qxxvxtxem4tzfdjmmsavvslx2hkxvpahn04k86q" />
+          <div
+            class={tw`flex items-center justify-center sm:justify-between flex(wrap sm:nowrap)`}
+          >
+            <Donate
+              name="Monero"
+              qr="qr/monero.png"
+              adress="467WEnaEv6jA3ni5Fb79m3NxZhpZXnY2kNvv3VkWcaCdXw25WU8SZomDm4x7gr83q6d94LGTdg2wwSQm11FLNHuhUz4sqNf"
+            />
+            <Donate
+              name="Ethereum"
+              qr="qr/eth.png"
+              adress="0x5B24E8E62EC5a57112547B2fA24955260F8C806D"
+            />
+            <Donate
+              name="Bitcoin"
+              qr="qr/btc.png"
+              adress="bc1qxxvxtxem4tzfdjmmsavvslx2hkxvpahn04k86q"
+            />
           </div>
         </div>
-
-
-
       </div>
+      <section id="technologies" class={tw`mt-10`}>
+        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Donate</h2>
+      </section>
     </div>
   );
 }
