@@ -88,7 +88,7 @@ export default function Home({ data }: PageProps<Data>) {
         Hello there, I'm lynx, 17 y.o. from Czechia. I'm a self-taught
         fullstack/desktop applications developer. My primary languages are Rust
         for backend and TypeScript for web apps and I really like using bleeding
-        edge technology. In my free time, I enjoy playing games and watching
+        edge technology. On side note I enjoy playing games and watching
         anime.
       </div>
       <div>
