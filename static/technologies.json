@@ -1,6 +1,62 @@
 [
     {
         "name": "Rust",
-        "url": ""
+        "url": "./icons/tech/rust.svg"
+    },
+    {
+        "name": "TypeScript",
+        "url": "./icons/tech/ts.svg"
+    },
+    {
+        "name": "Python",
+        "url": "./icons/tech/python.svg"
+    },
+    {
+        "name": "Vlang",
+        "url": "./icons/tech/v.svg"
+    },
+    {
+        "name": "Php",
+        "url": "./icons/tech/php.svg"
+    },
+    {
+        "name": "Node",
+        "url": "./icons/tech/node.svg"
+    },
+    {
+        "name": "Deno",
+        "url": "./icons/tech/deno.svg"
+    },
+    {
+        "name": "React",
+        "url": "./icons/tech/react.svg"
+    },
+    {
+        "name": "PostgreSQL",
+        "url": "./icons/tech/postgres.svg"
+    },
+    {
+        "name": "MongoDB",
+        "url": "./icons/tech/mongo.svg"
+    },
+    {
+        "name": "Next.js",
+        "url": "./icons/tech/next.svg"
+    },
+    {
+        "name": "Tailwind",
+        "url": "./icons/tech/tailwind.svg"
+    },
+    {
+        "name": "Yarn",
+        "url": "./icons/tech/yarn.svg"
+    },
+    {
+        "name": "Git",
+        "url": "./icons/tech/git.svg"
+    },
+    {
+        "name": "Express",
+        "url": "./icons/tech/express.svg"
     }
 ]

@@ -6,6 +6,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import Technology from "../Components/Technology.tsx";
 import Project from "../Components/Project.tsx";
 import prj from "../static/projects.json" assert { type: "json" };
+import tech from "../static/technologies.json" assert { type: "json" };
 import Donate from "../Components/Donate.tsx";
 
 interface User {
@@ -105,13 +106,10 @@ export default function Home({ data }: PageProps<Data>) {
       <section id="technologies" class={tw`mt-10`}>
         <h2 class={tw`text(2xl) font(bold)`}>Technologies</h2>
         <p class={tw`text(gray-800)`}>Bruh esfsefs</p>
-        <div class={tw`flex flex-wrap`}>
-          <div class={tw`w-1/4`}>
-            <div class={tw`flex flex-col items-center`}>
-              <img src="./icons/typescript.svg" alt="typescript" />
-              <p class={tw`text-center`}>TypeScript</p>
-            </div>
-          </div>
+        <div class={tw`flex flex-wrap mt-3`}>
+          {tech.map((technology) => (
+            <Technology name={technology.name} url={technology.url} />
+          ))}
         </div>
       </section>
       <section id="donate" class={tw`mt-10`}>
