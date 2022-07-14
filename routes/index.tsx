@@ -13,7 +13,7 @@ interface User {
   avatar: string;
 }
 
-interface GProject {
+interface IProject {
   name: string;
   description: string;
   stargazers_count: number;
@@ -23,7 +23,7 @@ interface GProject {
 
 interface Data {
   user: User;
-  projects: GProject[];
+  projects: IProject[];
 }
 
 export const handler: Handlers<Data> = {
@@ -36,7 +36,7 @@ export const handler: Handlers<Data> = {
     });
 
     const disresp = await fetch(`https://api.github.com/users/lnxcz/repos`);
-    const projects: GProject[] = await disresp.json();
+    const projects: IProject[] = await disresp.json();
 
     const user: User = await resp.json();
     return ctx.render({ user, projects });
@@ -46,45 +46,48 @@ export const handler: Handlers<Data> = {
 export default function Home({ data }: PageProps<Data>) {
   return (
     <div class={tw`p-4 mx-auto max-w-screen-sm mt-10`}>
-      <div class={tw`flex items-center`}>
-        <img
-          src={`https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png?size=100`}
-          class={tw`rounded-full`}
-          alt="logo"
-        />
-        <div class={tw`ml-6 text(lg)`}>
-          <div class={tw`flex`}>
-            <h1 class={tw`text-3xl font-semibold`}>lynx</h1>
-            {data && (
-              <p class={tw`font-semibold`}>#{data.user.discriminator}</p>
-            )}
-          </div>
-          <p>Software Developer</p>
-          <div class={tw`flex items(center) mt-4`}>
-            <a class={tw`w-6 mr-7`} href="https://github.com/lnxcz">
-              <img src="./icons/github.svg" alt="github" />
-            </a>
-            <a class={tw`w-6 mr-7`} href="https://anilist.co/user/lynxcz/">
-              <img src="./icons/anilist.svg" alt="anilist" />
-            </a>
-            <a
-              class={tw`w-6 mr-7`}
-              href="https://discord.com/users/724579978921902114"
-            >
-              <img src="./icons/discord.svg" alt="discord" />
-            </a>
+      <section id="about">
+        <div class={tw`flex items-center`}>
+          <img
+            src={`https://cdn.discordapp.com/avatars/${data.user.id}/${data.user.avatar}.png?size=100`}
+            class={tw`rounded-full`}
+            alt="logo"
+          />
+          <div class={tw`ml-6 text(lg)`}>
+            <div class={tw`flex`}>
+              <h1 class={tw`text-3xl font-semibold`}>lynx</h1>
+              {data && (
+                <p class={tw`font-semibold`}>#{data.user.discriminator}</p>
+              )}
+            </div>
+            <p>Software Developer</p>
+            <div class={tw`flex items(center) mt-4`}>
+              <a class={tw`w-6 mr-7`} href="https://github.com/lnxcz">
+                <img src="./icons/github.svg" alt="github" />
+              </a>
+              <a class={tw`w-6 mr-7`} href="https://anilist.co/user/lynxcz/">
+                <img src="./icons/anilist.svg" alt="anilist" />
+              </a>
+              <a
+                class={tw`w-6 mr-7`}
+                href="https://discord.com/users/724579978921902114"
+              >
+                <img src="./icons/discord.svg" alt="discord" />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class={tw`mt-10 text(gray-800)`}>
-        Hello there, I'm lynx, 17 y.o. from Czechia. I'm a self-taught
-        fullstack/desktop applications developer. My primary languages are Rust
-        for backend and TypeScript for web apps and I really like using bleeding
-        edge technology. On side note I enjoy playing games and watching anime.
-      </div>
-      <div>
+        <div class={tw`mt-10 text(gray-800)`}>
+          Hello there, I'm lynx, 17 y.o. from Czechia. I'm a self-taught
+          fullstack/desktop applications developer. My primary languages are
+          Rust for backend and TypeScript for web apps and I really like using
+          bleeding edge technology. On side note I enjoy playing games and
+          watching anime.
+        </div>
+      </section>
+      <section id="projects">
         <h2 class={tw`mt-10 text(2xl) font(bold)`}>
-          Open-Source Projects (WIP)
+          Projects
         </h2>
         {prj.map((project) => (
           <Project
@@ -96,16 +99,30 @@ export default function Home({ data }: PageProps<Data>) {
           />
         ))}
         .. and other bad stuff can be found on github.
-      </div>
-      <div>
-        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Donate</h2>
+      </section>
+      <section id="technologies" class={tw`mt-10`}>
+        <h2 class={tw`text(2xl) font(bold)`}>Technologies</h2>
+        <p class={tw`text(gray-800)`}>Bruh esfsefs</p>
+        <div class={tw`flex flex-wrap`}>
+
+          <div class={tw`w-1/4`}>
+            <div class={tw`flex flex-col items-center`}>
+              <img src="./icons/typescript.svg" alt="typescript" />
+              <p class={tw`text-center`}>TypeScript</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="donate" class={tw`mt-10`}>
+        <h2 class={tw` text(2xl) font(bold)`}>Donate</h2>
         <p class={tw`mt-2 text(gray-800)`}>
           Have some crypto to spare? Well in that case you could consider
           donating :)
         </p>
         <div class={tw`mx-auto max-w-screen-sm mt-5`}>
           <div
-            class={tw`flex items-center justify-center sm:justify-between flex(wrap sm:nowrap)`}
+            class={tw
+              `flex items-center justify-center sm:justify-between flex(wrap sm:nowrap)`}
           >
             <Donate
               name="Monero"
@@ -124,9 +141,6 @@ export default function Home({ data }: PageProps<Data>) {
             />
           </div>
         </div>
-      </div>
-      <section id="technologies" class={tw`mt-10`}>
-        <h2 class={tw`mt-10 text(2xl) font(bold)`}>Donate</h2>
       </section>
     </div>
   );
