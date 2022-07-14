@@ -10,9 +10,9 @@ interface Props {
 export default function Technology(props: Props) {
   return (
     <div class={tw`w-1/4`}>
-      <div class={tw`flex flex-col items-center`}>
-        <img src={props.url} alt="rust" />
-        <p class={tw`text-center`}>{props.name}</p>
+      <div class={tw`flex flex-row`}>
+        <img src={props.url} alt={props.name} />
+        <p class={tw`text-left`}>{props.name}</p>
       </div>
     </div>
   );
