@@ -7,7 +7,7 @@ import Technology from "../Components/Technology.tsx";
 import Project from "../Components/Project.tsx";
 import prj from "../static/projects.json" assert { type: "json" };
 import tech from "../static/technologies.json" assert { type: "json" };
-import Donate from "../Components/Donate.tsx";
+import Donate from "../islands/Donate.tsx";
 
 interface User {
   id: string;
