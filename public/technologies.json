@@ -1,62 +1,62 @@
 [
     {
         "name": "Rust",
-        "url": "./icons/tech/rust.svg"
+        "url": "/icons/tech/rust.svg"
     },
     {
         "name": "TypeScript",
-        "url": "./icons/tech/ts.svg"
+        "url": "/icons/tech/ts.svg"
     },
     {
         "name": "Python",
-        "url": "./icons/tech/python.svg"
+        "url": "/icons/tech/python.svg"
     },
     {
         "name": "Vlang",
-        "url": "./icons/tech/v.svg"
+        "url": "/icons/tech/v.svg"
     },
     {
         "name": "Php",
-        "url": "./icons/tech/php.svg"
+        "url": "/icons/tech/php.svg"
     },
     {
         "name": "Node",
-        "url": "./icons/tech/node.svg"
+        "url": "/icons/tech/node.svg"
     },
     {
         "name": "Deno",
-        "url": "./icons/tech/deno.svg"
+        "url": "/icons/tech/deno.svg"
     },
     {
         "name": "React",
-        "url": "./icons/tech/react.svg"
+        "url": "/icons/tech/react.svg"
     },
     {
         "name": "PostgreSQL",
-        "url": "./icons/tech/postgres.svg"
+        "url": "/icons/tech/postgres.svg"
     },
     {
         "name": "MongoDB",
-        "url": "./icons/tech/mongo.svg"
+        "url": "/icons/tech/mongo.svg"
     },
     {
         "name": "Next.js",
-        "url": "./icons/tech/next.svg"
+        "url": "/icons/tech/next.svg"
     },
     {
         "name": "Tailwind",
-        "url": "./icons/tech/tailwind.svg"
+        "url": "/icons/tech/tailwind.svg"
     },
     {
         "name": "Yarn",
-        "url": "./icons/tech/yarn.svg"
+        "url": "/icons/tech/yarn.svg"
     },
     {
         "name": "Git",
-        "url": "./icons/tech/git.svg"
+        "url": "/icons/tech/git.svg"
     },
     {
         "name": "Express",
-        "url": "./icons/tech/express.svg"
+        "url": "/icons/tech/express.svg"
     }
 ]

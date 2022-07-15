@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { tw } from "twind";
 
 interface Props {
@@ -16,12 +17,13 @@ export default function Donate(props: Props) {
       className={tw
         `flex flex-col items-center bg(gray-100) rounded-lg p-4 mb-3 sm:mb-0 w-[60%] sm:w-auto`}
     >
-      <img
-        src={props.qr}
-        width="150px"
-        height="150px"
-        className={tw`rounded`}
-      />
+      <div className={tw`rounded`}>
+        <Image
+          src={props.qr}
+          width={150}
+          height={150}
+        />
+      </div>
       <h3 className={tw`text-lg font-bold`}>{props.name}</h3>
       <p
         onClick={copyToClipboard}

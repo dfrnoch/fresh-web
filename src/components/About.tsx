@@ -1,51 +1,79 @@
+import Image from "next/image";
 import { tw } from "twind";
+import { User } from "../types/user.interface";
 
-interface User {
-  discord_user: {
-    id: string;
-    username: string;
-    discriminator: string;
-    avatar: string;
-  };
-}
-
-export default function About({ user }) {
+export default function About({ user }: { user: User }) {
   return (
     <div className={tw``}>
       <section id="about">
         <div className={tw`flex items-center`}>
-          <img
-            src={`https://cdn.discordapp.com/avatars/${du.id}/${du.avatar}.png?size=100`}
-            className={tw`rounded-full`}
-            alt="logo"
-          />
+          <div className={tw`relative`}>
+            <img
+              src={`https://cdn.discordapp.com/avatars/${user.discord_user.id}/${user.discord_user.avatar}.png?size=100`}
+              className={tw`rounded-full`}
+              alt="logo"
+            />
+            <div
+              className={tw`${
+                user.discord_status === "online"
+                  ? "bg(green-500)"
+                  : user.discord_status === "dnd"
+                  ? "bg(red-500)"
+                  : user.discord_status === "idle"
+                  ? "bg(orange-500)"
+                  : "bg(gray-500)"
+              } w-6 h-6 rounded-full absolute bottom-0 right-0 mr-0.5 mb-0.5 border(4 white)`}
+            />
+          </div>
           <div className={tw`ml-6 text(lg)`}>
             <div className={tw`flex`}>
               <h1 className={tw`text-3xl font-semibold`}>lynx</h1>
-              {user && <p className={tw`font-semibold`}>#{du.discriminator}</p>}
+              {user && (
+                <p className={tw`font-semibold`}>
+                  #{user.discord_user.discriminator}
+                </p>
+              )}
             </div>
             <p>Software Developer</p>
-            <div className={tw`flex items(center) mt-4`}>
-              <a className={tw`w-6 mr-7`} href="https://github.com/lnxcz">
-                <img src="./icons/github.svg" alt="github" />
+            <div className={tw`flex items(center) mt-4 `}>
+              <a
+                className={tw`w-6 mr-7 flex items(center)`}
+                href="https://github.com/lnxcz"
+              >
+                <Image
+                  src="/icons/github.svg"
+                  alt="github"
+                  width={40}
+                  height={40}
+                />
               </a>
               <a
-                className={tw`w-6 mr-7`}
+                className={tw`w-6 mr-7 flex items(center)`}
                 href="https://anilist.co/user/lynxcz/"
               >
-                <img src="./icons/anilist.svg" alt="anilist" />
+                <Image
+                  src="/icons/anilist.svg"
+                  alt="anilist"
+                  width={40}
+                  height={40}
+                />
               </a>
               <a
-                className={tw`w-6 mr-7`}
+                className={tw`w-6 mr-7 flex items(center)`}
                 href="https://discord.com/users/724579978921902114"
               >
-                <img src="./icons/discord.svg" alt="discord" />
+                <Image
+                  src="/icons/discord.svg"
+                  alt="discord"
+                  width={40}
+                  height={40}
+                />
               </a>
             </div>
           </div>
         </div>
         <div className={tw`mt-10 text(gray-800)`}>
-          Hello there, I'm lynx, 17 y.o. from Czechia. I'm a self-taught
+          Hello there, Im lynx, 17 y.o. from Czechia. Im a self-taught
           fullstack/desktop applications developer. My primary languages are
           Rust for backend and TypeScript for web apps and I really like using
           bleeding edge technology. On side note I enjoy playing games and
@@ -54,16 +82,4 @@ export default function About({ user }) {
       </section>
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const res = await fetch(
-    "https://api.lanyard.rest/v1/users/724579978921902114",
-  );
-  const user: User = await res.json();
-  return {
-    props: {
-      user,
-    },
-  };
 }
