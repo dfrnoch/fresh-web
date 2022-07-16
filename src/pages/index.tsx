@@ -16,7 +16,7 @@ interface PageProps {
 const Home: NextPage<PageProps> = ({ user }) => {
   return (
     <div className={tw`p-4 mx-auto max-w-screen-sm mt-10`}>
-      <About user={user} />
+      <About />
       <section id="projects">
         <h2 className={tw`mt-10 text(2xl) font(bold)`}>
           Projects
