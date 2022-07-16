@@ -79,18 +79,5 @@ const Home: NextPage<PageProps> = ({ user }) => {
   );
 };
 
-export async function getStaticProps() {
-  const res = await fetch(
-    "https://api.lanyard.rest/v1/users/724579978921902114",
-  );
-  let user = await res.json();
-  user = user.data;
-
-  return {
-    props: {
-      user,
-    },
-  };
-}
 
 export default Home;

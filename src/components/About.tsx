@@ -1,38 +1,56 @@
 import Image from "next/image";
 import { tw } from "twind";
-import { User } from "../types/user.interface";
+import { useLanyard } from "react-use-lanyard";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
-export default function About({ user }: { user: User }) {
+export default function About() {
+  const { loading, status /*, websocket */ } = useLanyard({
+    userId: "724579978921902114",
+    socket: true,
+  });
+
   return (
     <div className={tw``}>
       <section id="about">
         <div className={tw`flex items-center`}>
           <div className={tw`relative`}>
-            <img
-              src={`https://cdn.discordapp.com/avatars/${user.discord_user.id}/${user.discord_user.avatar}.png?size=100`}
-              className={tw`rounded-full`}
-              alt="logo"
-            />
-            <div
-              className={tw`${
-                user.discord_status === "online"
-                  ? "bg(green-500)"
-                  : user.discord_status === "dnd"
-                  ? "bg(red-500)"
-                  : user.discord_status === "idle"
-                  ? "bg(orange-500)"
-                  : "bg(gray-500)"
-              } w-6 h-6 rounded-full absolute bottom-0 right-0 mr-0.5 mb-0.5 border(4 white)`}
-            />
+            {!loading && (
+                  <img
+                    src={`https://cdn.discordapp.com/avatars/${
+                      status?.discord_user.id
+                    }/${status?.discord_user.avatar}.png?size=100`}
+                    className={tw`rounded-full`}
+                    alt="logo"
+                  />
+                ) || (
+              <Skeleton
+                height={100}
+                width={100}
+                circle={true}
+              />
+            )}
+            {!loading && (
+              <div
+                className={tw`${
+                  status?.discord_status === "online"
+                    ? "bg(green-500)"
+                    : status?.discord_status === "dnd"
+                    ? "bg(red-500)"
+                    : status?.discord_status === "idle"
+                    ? "bg(yellow-500)"
+                    : "bg(gray-500)"
+                } w-7 h-7 rounded-full absolute bottom-0 right-0 mr-0.5 mb-0.5 border([5px] white)`}
+              />
+            )}
           </div>
           <div className={tw`ml-6 text(lg)`}>
             <div className={tw`flex`}>
               <h1 className={tw`text-3xl font-semibold`}>lynx</h1>
-              {user && (
-                <p className={tw`font-semibold`}>
-                  #{user.discord_user.discriminator}
-                </p>
-              )}
+              <p className={tw`font-semibold`}>
+                #{loading && <Skeleton width={"50px"} height={"20px"} /> ||
+                  status?.discord_user.discriminator}
+              </p>
             </div>
             <p>Software Developer</p>
             <div className={tw`flex items(center) mt-4 `}>
