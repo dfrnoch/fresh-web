@@ -17,7 +17,7 @@ const Home: NextPage<PageProps> = ({ user }) => {
   return (
     <div className={tw`p-4 mx-auto max-w-screen-sm mt-10`}>
       <About />
-      <section id="projects">
+      {/* <section id="projects">
         <h2 className={tw`mt-10 text(2xl) font(bold)`}>
           Projects
         </h2>
@@ -32,7 +32,7 @@ const Home: NextPage<PageProps> = ({ user }) => {
           />
         ))}
         .. and other bad stuff can be found on github.
-      </section>
+      </section> */}
       <section id="technologies" className={tw`mt-10`}>
         <h2 className={tw`text(2xl) font(bold)`}>Technologies</h2>
         {/* <p className={tw`text(gray-800)`}>Bruh esfsefs</p> */}
