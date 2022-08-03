@@ -67,7 +67,7 @@ export default function About() {
               </a>
               <a
                 className={tw`w-6 mr-7 flex items(center)`}
-                href="https://anilist.co/user/lynxcz/"
+                href="https://anilist.co/user/lynxiik/"
               >
                 <Image
                   src="/icons/anilist.svg"
