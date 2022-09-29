@@ -3,6 +3,7 @@ import { tw } from "twind";
 import { useLanyard } from "react-use-lanyard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Social } from "./Social";
 
 export default function About() {
   const { loading, status /*, websocket */ } = useLanyard({
@@ -15,21 +16,13 @@ export default function About() {
       <section id="about">
         <div className={tw`flex items-center`}>
           <div className={tw`relative`}>
-            {!loading && (
-                  <img
-                    src={`https://cdn.discordapp.com/avatars/${
-                      status?.discord_user.id
-                    }/${status?.discord_user.avatar}.png?size=100`}
-                    className={tw`rounded-full`}
-                    alt="logo"
-                  />
-                ) || (
-              <Skeleton
-                height={100}
-                width={100}
-                circle={true}
+            {(!loading && (
+              <img
+                src={`https://cdn.discordapp.com/avatars/${status?.discord_user.id}/${status?.discord_user.avatar}.png?size=100`}
+                className={tw`rounded-full`}
+                alt="logo"
               />
-            )}
+            )) || <Skeleton height={100} width={100} circle={true} />}
             {!loading && (
               <div
                 className={tw`${
@@ -48,45 +41,30 @@ export default function About() {
             <div className={tw`flex`}>
               <h1 className={tw`text-3xl font-semibold`}>lynx</h1>
               <p className={tw`font-semibold`}>
-                #{loading && <Skeleton width={"50px"} height={"20px"} /> ||
+                #
+                {(loading && <Skeleton width={"50px"} height={"20px"} />) ||
                   status?.discord_user.discriminator}
               </p>
             </div>
             <p>Software Developer</p>
             <div className={tw`flex items(center) mt-4 `}>
-              <a
-                className={tw`w-6 mr-7 flex items(center)`}
-                href="https://github.com/lnxcz"
-              >
-                <Image
-                  src="/icons/github.svg"
-                  alt="github"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a
-                className={tw`w-6 mr-7 flex items(center)`}
-                href="https://anilist.co/user/lynxiik/"
-              >
-                <Image
-                  src="/icons/anilist.svg"
-                  alt="anilist"
-                  width={40}
-                  height={40}
-                />
-              </a>
-              <a
-                className={tw`w-6 mr-7 flex items(center)`}
-                href="https://discord.com/users/724579978921902114"
-              >
-                <Image
-                  src="/icons/discord.svg"
-                  alt="discord"
-                  width={40}
-                  height={40}
-                />
-              </a>
+              <Social url="https://github.com/lnxcz" icon="/icons/github.svg" />
+              <Social
+                url="https://anilist.co/user/lynxiik/"
+                icon="/icons/anilist.svg"
+              />
+              <Social
+                url="https://discord.com/users/724579978921902114"
+                icon="/icons/discord.svg"
+              />
+              <Social
+                url="https://www.duolingo.com/profile/Rising"
+                icon="/icons/duolingo.svg"
+              />
+              <Social
+                url="https://wakatime.com/@lynxiik"
+                icon="/icons/wakatime.svg"
+              />
             </div>
           </div>
         </div>
