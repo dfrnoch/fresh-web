@@ -1,5 +1,3 @@
-"use client";
-
 import type { NextPage } from "next";
 import Donate from "./components/Donate";
 
