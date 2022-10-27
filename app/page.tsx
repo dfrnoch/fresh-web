@@ -20,7 +20,7 @@ export default function Home() {
             <Project repo={project} />
           </Suspense>
         ))}
-        <p className="mt-5 text-gray-800">
+        <p className="mt-5 text-gray-900">
           .. and other bad stuff can be found on github.
         </p>
       </section>
@@ -39,7 +39,7 @@ export default function Home() {
       </section>
       <section id="donate" className={`mt-10`}>
         <h2 className={` text-2xl font-bold`}>Donate</h2>
-        <p className={`mt-2 text-gray-800 `}>
+        <p className={`mt-2 text-gray-900 `}>
           Have some crypto to spare? Well in that case you could consider
           donating :)
         </p>

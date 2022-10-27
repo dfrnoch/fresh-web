@@ -38,7 +38,7 @@ export default async function Project(props: Props) {
           {data.forks}
         </div>
       </div>
-      <div className={`text-sm text-gray-800`}>
+      <div className={`text-sm text-gray-900`}>
         <p>{data.description ? data.description : "No description"}</p>
       </div>
     </div>
