@@ -1,6 +1,4 @@
-import Skeleton from "react-loading-skeleton";
-
+// TODO: work to be done here
 export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
-  return <div>loading</div>;
+  return <div>loading...</div>;
 }

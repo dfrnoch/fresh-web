@@ -5,7 +5,6 @@ interface Props {
 }
 
 const fetchRepo = async (repo: string): Promise<GithubRepo> => {
-  console.log("fetching repo");
   const res = await fetch(`https://api.github.com/repos/${repo}`);
   const data = await res.json();
   return data;
@@ -13,7 +12,6 @@ const fetchRepo = async (repo: string): Promise<GithubRepo> => {
 
 export default async function Project(props: Props) {
   const data = await fetchRepo(props.repo);
-  console.log(data);
 
   return (
     <div>
@@ -40,7 +38,7 @@ export default async function Project(props: Props) {
           {data.forks}
         </div>
       </div>
-      <div className={`text-sm`}>
+      <div className={`text-sm text-gray-800`}>
         <p>{data.description ? data.description : "No description"}</p>
       </div>
     </div>
