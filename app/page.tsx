@@ -2,7 +2,6 @@
 
 import type { NextPage } from "next";
 import Donate from "./components/Donate";
-import { User } from "./types/user.interface";
 
 import tech from "../public/technologies.json";
 import prj from "../public/projects.json";
@@ -10,11 +9,7 @@ import Project from "./components/Project";
 import Technology from "./components/Technology";
 import About from "./components/About";
 
-interface PageProps {
-  user: User;
-}
-
-const Home: NextPage<PageProps> = ({ user }) => {
+export default function Home() {
   return (
     <div className={`p-4 mx-auto max-w-screen-sm mt-10`}>
       <About />
@@ -77,6 +72,4 @@ const Home: NextPage<PageProps> = ({ user }) => {
       </section>
     </div>
   );
-};
-
-export default Home;
+}
