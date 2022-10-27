@@ -1,57 +1,82 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js 13!</a>
-        </h1>
+import type { NextPage } from "next";
+import Donate from "./components/Donate";
+import { User } from "./types/user.interface";
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
+import tech from "../public/technologies.json";
+import prj from "../public/projects.json";
+import Project from "./components/Project";
+import Technology from "./components/Technology";
+import About from "./components/About";
 
-        <div className={styles.grid}>
-          <a href="https://beta.nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js 13</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Explore the Next.js 13 playground.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates/next.js/app-directory?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>Deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
-  )
+interface PageProps {
+  user: User;
 }
+
+const Home: NextPage<PageProps> = ({ user }) => {
+  return (
+    <div className={`p-4 mx-auto max-w-screen-sm mt-10`}>
+      <About />
+      {/* <section id="projects">
+        <h2 className={`mt-10 text(2xl) font(bold)`}>
+          Projects
+        </h2>
+        {prj.map((project) => (
+          <Project
+            key={project.name}
+            name={project.name}
+            description={project.description}
+            stars={project.stars}
+            forks={project.forks}
+            url={project.url}
+          />
+        ))}
+        .. and other bad stuff can be found on github.
+      </section> */}
+      <section id="technologies" className={`mt-10`}>
+        <h2 className={`text(2xl) font(bold)`}>Technologies</h2>
+        {/* <p className={`text(gray-800)`}>Bruh esfsefs</p> */}
+        <div className={`flex flex-wrap mt-3`}>
+          {tech.map((technology) => (
+            <Technology
+              key={technology.name}
+              name={technology.name}
+              url={technology.url}
+            />
+          ))}
+        </div>
+      </section>
+      <section id="donate" className={`mt-10`}>
+        <h2 className={` text(2xl) font(bold)`}>Donate</h2>
+        <p className={`mt-2 text(gray-800)`}>
+          Have some crypto to spare? Well in that case you could consider
+          donating :)
+        </p>
+        <div className={`mx-auto max-w-screen-sm mt-5`}>
+          <div
+            className={`flex items-center justify-center sm:justify-between flex(wrap sm:nowrap)`}
+          >
+            <Donate
+              name="Monero"
+              qr="/qr/monero.png"
+              adress="467WEnaEv6jA3ni5Fb79m3NxZhpZXnY2kNvv3VkWcaCdXw25WU8SZomDm4x7gr83q6d94LGTdg2wwSQm11FLNHuhUz4sqNf"
+            />
+            <Donate
+              name="Ethereum"
+              qr="/qr/eth.png"
+              adress="0x5B24E8E62EC5a57112547B2fA24955260F8C806D"
+            />
+            <Donate
+              name="Bitcoin"
+              qr="/qr/btc.png"
+              adress="bc1qxxvxtxem4tzfdjmmsavvslx2hkxvpahn04k86q"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
