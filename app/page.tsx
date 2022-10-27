@@ -1,32 +1,28 @@
-import type { NextPage } from "next";
-import Donate from "./components/Donate";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
+import Loading from "./loading";
 
+import Donate from "./components/Donate";
 import tech from "../public/technologies.json";
 import prj from "../public/projects.json";
-import Project from "./components/Project";
 import Technology from "./components/Technology";
 import About from "./components/About";
+import Project from "./components/Project";
 
 export default function Home() {
   return (
     <div className={`p-4 mx-auto max-w-screen-sm mt-10`}>
       <About />
-      {/* <section id="projects">
-        <h2 className={`mt-10 text(2xl) font(bold)`}>
-          Projects
-        </h2>
+      <section id="projects">
+        <h2 className={`mt-10 text-2xl font-bold`}>Projects</h2>
         {prj.map((project) => (
-          <Project
-            key={project.name}
-            name={project.name}
-            description={project.description}
-            stars={project.stars}
-            forks={project.forks}
-            url={project.url}
-          />
+          <Suspense fallback={<Loading />} key={project}>
+            {/* @ts-ignore */}
+            <Project repo={project} />
+          </Suspense>
         ))}
-        .. and other bad stuff can be found on github.
-      </section> */}
+        <p className="mt-5">.. and other bad stuff can be found on github.</p>
+      </section>
       <section id="technologies" className={`mt-10`}>
         <h2 className={`text-2xl font-bold`}>Technologies</h2>
         {/* <p className={`text(gray-800)`}>Bruh esfsefs</p> */}
