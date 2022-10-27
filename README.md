@@ -1,4 +1,4 @@
-### This branch will not be maintained, currect branch is [v13](https://github.com/lnxcz/fresh-web/tree/v13), this new one will be merged soon
+### This branch will not be maintained, currect branch is [v13](https://github.com/lnxcz/fresh-web/tree/v13), the new one will be merged soon
 
 
 ## roadmap
