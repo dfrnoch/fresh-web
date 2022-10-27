@@ -35,7 +35,7 @@ const Home: NextPage<PageProps> = ({ user }) => {
         .. and other bad stuff can be found on github.
       </section> */}
       <section id="technologies" className={`mt-10`}>
-        <h2 className={`text(2xl) font(bold)`}>Technologies</h2>
+        <h2 className={`text-2xl font-bold`}>Technologies</h2>
         {/* <p className={`text(gray-800)`}>Bruh esfsefs</p> */}
         <div className={`flex flex-wrap mt-3`}>
           {tech.map((technology) => (
@@ -48,14 +48,14 @@ const Home: NextPage<PageProps> = ({ user }) => {
         </div>
       </section>
       <section id="donate" className={`mt-10`}>
-        <h2 className={` text(2xl) font(bold)`}>Donate</h2>
-        <p className={`mt-2 text(gray-800)`}>
+        <h2 className={` text-2xl font-bold`}>Donate</h2>
+        <p className={`mt-2 text-gray-800`}>
           Have some crypto to spare? Well in that case you could consider
           donating :)
         </p>
         <div className={`mx-auto max-w-screen-sm mt-5`}>
           <div
-            className={`flex items-center justify-center sm:justify-between flex(wrap sm:nowrap)`}
+            className={`flex items-center justify-center sm:justify-between flex-wrap sm:flex-nowrap`}
           >
             <Donate
               name="Monero"

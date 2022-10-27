@@ -27,17 +27,19 @@ export default function About() {
               <div
                 className={`${
                   status?.discord_status === "online"
-                    ? "bg(green-500)"
+                    ? "bg-green-500"
                     : status?.discord_status === "dnd"
-                    ? "bg(red-500)"
+                    ? "bg-red-500"
                     : status?.discord_status === "idle"
-                    ? "bg(yellow-500)"
-                    : "bg(gray-500)"
-                } w-7 h-7 rounded-full absolute bottom-0 right-0 mr-0.5 mb-0.5 border([5px] white)`}
+                    ? "bgy-ellow-500"
+                    : "bg-gray-500"
+                    ? status?.discord_status === undefined
+                    : "bg-gray-500"
+                } w-7 h-7 rounded-full absolute bottom-0 right-0 mr-0.5 mb-0.5 border-[5px] border-white`}
               />
             )}
           </div>
-          <div className={`ml-6 text(lg)`}>
+          <div className={`ml-6 text-lg`}>
             <div className={`flex`}>
               <h1 className={`text-3xl font-semibold`}>lynx</h1>
               <p className={`font-semibold`}>
@@ -47,7 +49,7 @@ export default function About() {
               </p>
             </div>
             <p>Software Developer</p>
-            <div className={`flex items(center) mt-4 `}>
+            <div className={`flex items-center mt-4 `}>
               <Social url="https://github.com/lnxcz" icon="/icons/github.svg" />
               <Social
                 url="https://anilist.co/user/lynxiik/"
@@ -68,7 +70,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className={`mt-10 text(gray-800)`}>
+        <div className={`mt-10 text-gray-800`}>
           Hello there, Im lynx, 17 y.o. from Czechia. Im a self-taught
           fullstack/desktop applications developer. My primary languages are
           Rust for backend and TypeScript for web apps and I really like using
