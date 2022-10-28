@@ -30,9 +30,9 @@ export default function About() {
                     : status?.discord_status === "dnd"
                     ? "bg-red-500"
                     : status?.discord_status === "idle"
-                    ? "bgy-ellow-500"
-                    : "bg-gray-500"
-                    ? status?.discord_status === undefined
+                    ? "bg-yellow-500"
+                    : status?.discord_status === "offline"
+                    ? "bg-gray-500"
                     : "bg-gray-500"
                 } w-7 h-7 rounded-full absolute bottom-0 right-0 mr-0.5 mb-0.5 border-[5px] border-white`}
               />
