@@ -70,11 +70,11 @@ export default function About() {
           </div>
         </div>
         <div className={`mt-10 text-gray-900`}>
-          Hello there, Im lynx, 17 y.o. from Czechia. Im a self-taught
-          fullstack/desktop applications developer. My primary languages are
-          Rust for backend and TypeScript for web apps and I really like using
-          bleeding edge technology. On side note I enjoy playing games and
-          watching anime.
+          Hello there, Im lynx, 17yo self-taught hobbyist full-stack developer.
+          Mainly working with Rust & TypeScript. I've been programming for over
+          3 years now, primarily working with js/ts, this year I started doing
+          all sorts of things with Rust. On side note I enjoy playing rhythm
+          games and watching anime.
         </div>
       </section>
     </div>

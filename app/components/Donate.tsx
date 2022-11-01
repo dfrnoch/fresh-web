@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 interface Props {
@@ -20,7 +21,7 @@ export default function Donate(props: Props) {
       </div>
       <h3 className={`text-lg font-bold`}>{props.name}</h3>
       <p
-        // onClick={copyToClipboard}
+        onClick={copyToClipboard}
         className={`cursor-pointer text-sm hover:text-green-500 transition`}
       >
         Click to copy
