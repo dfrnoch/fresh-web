@@ -51,16 +51,8 @@ export default function About() {
             <div className={`flex items-center mt-4 `}>
               <Social url="https://github.com/lnxcz" icon="/icons/github.svg" />
               <Social
-                url="https://anilist.co/user/lynxiik/"
-                icon="/icons/anilist.svg"
-              />
-              <Social
                 url="https://discord.com/users/724579978921902114"
                 icon="/icons/discord.svg"
-              />
-              <Social
-                url="https://www.duolingo.com/profile/Rising"
-                icon="/icons/duolingo.svg"
               />
               <Social
                 url="https://wakatime.com/@lynxiik"
