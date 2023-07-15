@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { GithubRepo } from "../types/github.interface";
 

@@ -1,3 +1,5 @@
+
+"use client";
 import { Suspense } from "react";
 import Loading from "./loading";
 
@@ -20,7 +22,7 @@ export default function Home() {
 					</Suspense>
 				))}
 				<p className="mt-5 text-gray-900">
-					.. and other bad stuff can be found on github.
+					.. and other stuff can be found on github.
 				</p>
 			</section>
 			<section id="technologies" className={"mt-10"}>
