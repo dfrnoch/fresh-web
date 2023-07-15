@@ -16,7 +16,6 @@ export default function Home() {
 				<h2 className={"mt-10 text-2xl font-bold"}>Projects</h2>
 				{prj.map((project) => (
 					<Suspense fallback={<Loading />} key={project}>
-						{/* @ts-expect-error Async Server Component */}
 						<Project repo={project} />
 					</Suspense>
 				))}
